@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleBackgroundAnimation.css">
+    <link rel="stylesheet" href="./css/styleHeader.css">
+    <link rel="stylesheet" href="./css/styleIndex.css">
+    <title>PortFolio</title>
+</head>
+
+<body>
+    <header>
+        <a class="lien" href="./index.html">Présentation</a>
+        <a class="lien" href="./html/projets.html">Projets</a>
+        <a class="lien" href="./html/competences.html">Compétences</a>
+    </header>
+    <div class="gradientAnimation"></div>
+    <main>
+        <div class="gauche">
+            <img src="images/icone3.png" alt="">
+        </div>
+        <div class="droite">
+            <span class="jeSuis">Je suis
+                <span class="multitext"></span>
+            </span>
+            <span>
+                Etudiant passionné de programmation qui a récemment entamé
+                son voyage dans le monde du développement informatique. Au cours de ma première année en BTS SIO
+                (Services Informatiques aux Organisations), j'ai eu l'opportunité d'explorer divers aspects
+                de la programmation et de m'initier à l'art de la création de logiciels et de sites web.
+
+                Malgré ma courte expérience, j'ai été captivé par les défis intellectuels que la programmation offre,
+                ainsi que par son potentiel de création. J'ai investi du temps et des efforts pour maîtriser les bases
+                de la programmation et j'ai eu l'occasion de travailler sur des projets éducatifs et personnels.
+
+                Ce portfolio est un espace où je partage mes premières réalisations et projets, démontrant mon
+                apprentissage et ma passion grandissante pour la programmation. Je suis ouvert à de nouvelles
+                opportunités et à la collaboration, que ce soit pour des projets académiques, des stages ou pour
+                développer mes compétences en dehors des cours.
+
+                N'hésitez pas à parcourir les projets que j'ai créés jusqu'à présent.
+            </span>
+        </div>
+    </main>
+    <script src="./js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script type="text/javascript">
+        var typed = new Typed(".multitext", {
+            strings: ["Chigot Valentin", "développeur web", "développeur logiciel", "passionné", "étudiant"],
+            loop: true,
+            typeSpeed: 70,
+            backSpeed: 60,
+            backDelay: 1750
+        })
+
+    </script>
+</body>
+
+</html>

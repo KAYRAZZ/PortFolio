@@ -1,0 +1,48 @@
+.backgroundAnimation {
+    top: -250px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 100%;
+}
+
+.backgroundAnimation span {
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    border-radius: 50%;
+    animation-delay: 2s;
+    filter: blur(50px);
+    opacity: 0.05;
+    animation: anim 15s alternate infinite;
+    transition: background 3s ease-in-out;
+}
+
+.backgroundAnimation span:nth-child(1) {
+    background: #ae06f1;
+    animation-delay: 0s;
+}
+
+.backgroundAnimation span:nth-child(2) {
+    background: #00c3ff;
+    animation-delay: 2s;
+}
+
+
+@keyframes anim {
+    0% {
+        left: 0;
+        top: 0px;
+    }
+
+    50% {
+        left: 150%;
+        top: 50px;
+    }
+
+    100% {
+        left: 0;
+        top: 0px;
+    }
+}

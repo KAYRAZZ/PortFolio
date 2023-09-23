@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    opacity: 0;
+    background-color: rgb(18, 18, 18);
+    transition: opacity 0.3s ease-in-out;
+}
+
+header {
+    width: 450px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 45px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+
+.lien {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bolder;
+    position: relative;
+}
+
+.lien::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid;
+    color: rgb(255, 255, 255);
+    width: 0%;
+    top: 85%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.lien.active::after {
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+/* Apply the animation to an element */
+.gradientAnimation {
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 500px;
+    filter: blur(200px);
+    opacity: 0;
+    background: linear-gradient(45deg, #FF5733, #6B16F7, #00C9FF, #11FF02, #ff02d1, #11FF02);
+    background-size: 250%;
+    animation: gradientAnimation 20s ease-in-out alternate infinite;
+    transition: opacity 0.3s ease-in-out;
+}
