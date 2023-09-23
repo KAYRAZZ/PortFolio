@@ -1,5 +1,13 @@
+/* * {
+    box-shadow: 0 0 0 3px red inset;
+} */
+
+html {
+    font-size: 1rem;
+
+}
+
 body {
-    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 115px 1fr;
@@ -7,10 +15,12 @@ body {
         "header header"
         "main main";
 }
+
 header {
     grid-area: header;
 
 }
+
 main {
     grid-area: main;
     display: flex;
@@ -18,20 +28,25 @@ main {
     align-items: center;
     width: 80%;
     margin: auto;
+    font-size: 1rem;
 }
-.gauche, .droite {
+
+.gauche,
+.droite {
     position: relative;
     height: 100%;
 }
+
 .gauche {
     width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .gauche img {
     position: relative;
-    width: 400px;
+    max-width: 400px;
 }
 
 .droite {
@@ -41,13 +56,50 @@ main {
     display: flex;
     flex-direction: column;
 }
+
 .jeSuis {
     width: 100%;
     text-align: center;
-    font-size: 45px;
+    font-size: 2.1rem;
     font-weight: bold;
     position: absolute;
     top: -50px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.text {
+    text-align: justify;
+}
+
+@media (max-width: 1300px) {
+    main {
+        flex-direction: column;
+        padding-bottom: 60px;
+        width: 100%;
+    }
+
+    img {
+        width: 325px;
+    }
+
+    .gauche {
+        margin-bottom: 125px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        display: none;
+    }
+    .text {
+        text-align: center;
+    }
+    .droite {
+        width: 80%;
+    }
+
+    img {
+        width: 300px;
+    }
 }
