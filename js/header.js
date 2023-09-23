@@ -4,7 +4,6 @@ const gradientAnimation = document.querySelector(".gradientAnimation");
 const body = document.body;
 
 liens.forEach((lien) => {
-
     if (lien.href == currentPageURL) {
         setTimeout(function () {
             lien.classList.add("active");
@@ -32,3 +31,7 @@ liens.forEach((lien) => {
         }
     })
 });
+
+setTimeout(function () {
+    body.style.opacity = 1;
+}, 500);
