@@ -18,11 +18,12 @@ header {
     top: 45px;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9998;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 header nav {
     display: flex;
     justify-content: space-between;
@@ -85,9 +86,83 @@ header nav {
     transition: opacity 0.3s ease-in-out;
 }
 
+
+.menu {
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu:hover::before {
+    transform: rotate(50deg);
+}
+
+.menu span {
+    height: 5px;
+    width: 40px;
+    position: absolute;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width .4s ease-in-out;
+}
+
+.menu span:nth-child(2) {
+    top: calc(50% - 13px);
+    transform: translate(-50%, -50%);
+    transition: transform .6s ease-in-out,
+    top .6s ease-in-out;
+}
+
+.menu span:nth-child(3) {
+    top: calc(50% + 13px);
+    transform: translate(-50%, -50%);
+    transition: transform .6s ease-in-out,
+    top .6s ease-in-out;
+}
+
+
+.menu.active span:nth-child(1) {
+    width: 0;
+}
+
+.menu.active span:nth-child(2) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-225deg);
+
+}
+
+
+
+
+
+
+
 @media (max-width: 480px) {
     header {
+        width: 100vw;
+    }
+
+    header nav {
         display: none;
+    }
+    .menu {
+        display: flex;
     }
     .gradientAnimation {
         background-size: 800%;

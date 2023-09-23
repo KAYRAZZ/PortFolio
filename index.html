@@ -10,9 +10,16 @@
 
 <body>
     <header>
-        <a class="lien" href="./index.html">Présentation</a>
-        <a class="lien" href="./html/projets.html">Projets</a>
-        <a class="lien" href="./html/competences.html">Compétences</a>
+        <nav>
+            <li><a class="lien" href="./index.html">Présentation</a></li>
+            <li><a class="lien" href="./html/projets.html">Projets</a></li>
+            <li><a class="lien" href="./html/competences.html">Compétences</a></li>
+        </nav>
+        <div class="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
     <div class="gradientAnimation"></div>
     <main>
@@ -52,7 +59,6 @@
             typeSpeed: 70,
             backSpeed: 60,
             backDelay: 1750,
-            loop: true,
             onComplete: (self) => {
                 hideCursor()
             },

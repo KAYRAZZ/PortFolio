@@ -40,3 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const menu = document.querySelector(".menu");
+menu.addEventListener("click", () => {
+    menu.classList.toggle("active");
+
+})
