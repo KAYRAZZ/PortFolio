@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // document.getElementById("loader").style.display = "none";
+
     const liens = document.querySelectorAll(".lien");
     const currentPageURL = window.location.href;
     const gradientAnimation = document.querySelector(".gradientAnimation");
@@ -11,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     liens.forEach((lien) => {
         if (lien.href == currentPageURL) {
+            setTimeout(function () {
+                lien.classList.add("active");
+            }, 500);
+        } else if (lien.textContent == "Présentation") {
             setTimeout(function () {
                 lien.classList.add("active");
             }, 500);
