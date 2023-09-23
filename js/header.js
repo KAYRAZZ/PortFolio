@@ -12,11 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
 
     liens.forEach((lien) => {
-        if (lien.href == currentPageURL) {
-            setTimeout(function () {
-                lien.classList.add("active");
-            }, 500);
-        } else if (lien.textContent == "Présentation") {
+        const linkURL = lien.href;
+        if (linkURL === currentPageURL || (linkURL + 'index.html') === currentPageURL) {
             setTimeout(function () {
                 lien.classList.add("active");
             }, 500);
