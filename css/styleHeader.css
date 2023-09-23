@@ -79,3 +79,9 @@ header {
     animation: gradientAnimation 20s ease-in-out alternate infinite;
     transition: opacity 0.3s ease-in-out;
 }
+
+@media (max-width: 480px) {
+    .gradientAnimation {
+        background-size: 800%;
+    }
+}
