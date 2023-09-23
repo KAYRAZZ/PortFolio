@@ -1,10 +1,9 @@
-const liens = document.querySelectorAll(".lien");
-const currentPageURL = window.location.href;
-const gradientAnimation = document.querySelector(".gradientAnimation");
-const body = document.body;
-
 document.addEventListener("DOMContentLoaded", function () {
 
+    const liens = document.querySelectorAll(".lien");
+    const currentPageURL = window.location.href;
+    const gradientAnimation = document.querySelector(".gradientAnimation");
+    const body = document.body;
     setTimeout(function () {
         body.style.opacity = 1;
         gradientAnimation.style.opacity = 0.3;
