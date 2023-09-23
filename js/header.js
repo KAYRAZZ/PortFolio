@@ -3,12 +3,15 @@ const currentPageURL = window.location.href;
 const gradientAnimation = document.querySelector(".gradientAnimation");
 const body = document.body;
 
+setTimeout(function () {
+    body.style.opacity = 1;
+}, 500);
+
 liens.forEach((lien) => {
     if (lien.href == currentPageURL) {
         setTimeout(function () {
             lien.classList.add("active");
             gradientAnimation.style.opacity = 0.3;
-            body.style.opacity = 1;
         }, 500);
     }
 
@@ -32,6 +35,3 @@ liens.forEach((lien) => {
     })
 });
 
-setTimeout(function () {
-    body.style.opacity = 1;
-}, 500);
