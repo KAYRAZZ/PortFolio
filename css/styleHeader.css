@@ -7,7 +7,7 @@
 body {
     height: 100vh;
     overflow-x: hidden;
-    opacity: 0;
+
     background-color: rgb(18, 18, 18);
     transition: opacity 0.3s ease-in-out;
 }

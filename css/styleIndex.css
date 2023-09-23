@@ -88,15 +88,19 @@ main {
     }
 }
 
+@media (max-width: 750px) {
+    .droite {
+        width: 80%;
+    }
+}
+
 @media (max-width: 480px) {
     header {
         display: none;
     }
+
     .text {
         text-align: center;
-    }
-    .droite {
-        width: 80%;
     }
 
     img {
