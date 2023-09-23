@@ -5,13 +5,13 @@ const body = document.body;
 
 setTimeout(function () {
     body.style.opacity = 1;
+    gradientAnimation.style.opacity = 0.3;
 }, 500);
 
 liens.forEach((lien) => {
     if (lien.href == currentPageURL) {
         setTimeout(function () {
             lien.classList.add("active");
-            gradientAnimation.style.opacity = 0.3;
         }, 500);
     }
 
