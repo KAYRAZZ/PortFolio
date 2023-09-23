@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     liens.forEach((lien) => {
         const linkURL = lien.href;
-        if (linkURL === currentPageURL || (linkURL + 'index.html') === currentPageURL) {
+        if (linkURL === currentPageURL || (currentPageURL + 'index.html') === linkURL) {
             setTimeout(function () {
                 lien.classList.add("active");
             }, 500);

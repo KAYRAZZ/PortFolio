@@ -72,6 +72,8 @@ main {
     text-align: justify;
 }
 
+
+
 @media (max-width: 1300px) {
     main {
         flex-direction: column;
@@ -95,10 +97,6 @@ main {
 }
 
 @media (max-width: 480px) {
-    header {
-        display: none;
-    }
-
     .text {
         text-align: center;
     }

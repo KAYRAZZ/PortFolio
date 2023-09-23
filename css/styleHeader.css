@@ -7,24 +7,29 @@
 body {
     height: 100vh;
     overflow-x: hidden;
-
     background-color: rgb(18, 18, 18);
     transition: opacity 0.3s ease-in-out;
 }
 
 header {
-    width: 450px;
+    width: 500px;
     height: 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     position: relative;
     top: 45px;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    width: 500px;
+}
 
 .lien {
     font-family: Verdana, Geneva, sans-serif;
@@ -81,6 +86,9 @@ header {
 }
 
 @media (max-width: 480px) {
+    header {
+        display: none;
+    }
     .gradientAnimation {
         background-size: 800%;
     }
