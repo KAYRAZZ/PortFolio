@@ -100,12 +100,13 @@ main {
     /* Agrandissement de la zone d'intro */
     .droite {
         width: 80%;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
-    /* Changement du format du texte */
+    /* Changement du format du texte et on descend un peu*/
     .text {
         text-align: center;
+        margin-top: 20px;
     }
 }
 

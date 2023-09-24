@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPageURL = window.location.href;
     const gradientAnimation = document.querySelector(".gradientAnimation");
     const body = document.body;
+
     // Attend 0.5s avant d'afficher le body et l'animation gradient
     setTimeout(function () {
         body.style.opacity = 1;
@@ -46,23 +47,34 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     });
+
+    // On ajoute une class quand on clique le menu
+    const menu = document.querySelector(".menu");
+    const barre = document.querySelector(".barre");
+
+    // On empêche de cliquer tant que le menu ne s'est pas déroulé entièrement
+    // Sinon les transitions ne se font plus
+    let cliquable = true;
+
+    barre.addEventListener("click", () => {
+        if (cliquable) {
+            menu.classList.toggle("active");
+            // Si le menu est déroulé, on empêche le défilement la page
+            if (menu.classList.value == "menu active") {
+                body.style.overflow = "hidden";
+
+                // Si le menu n'est pas déroulé, on autorise le défilement la page
+            } else if (menu.classList.value == "menu") {
+                body.style.overflow = "";
+                body.style.overflowX = "hidden";
+
+            }
+            cliquable = false;
+
+            setTimeout(() => {
+                cliquable = true;
+            }, 1000);
+        }
+    })
 });
 
-// On ajoute une class quand on clique le menu
-const menu = document.querySelector(".menu");
-const barre = document.querySelector(".barre");
-
-// On empêche de cliquer tant que le menu ne s'est pas déroulé entièrement
-// Sinon les transitions ne se font plus
-let cliquable = true;
-
-barre.addEventListener("click", () => {
-    if (cliquable) {
-        menu.classList.toggle("active");
-        cliquable = false;
-
-        setTimeout(() => {
-            cliquable = true;
-        }, 1000);
-    }
-})
