@@ -86,10 +86,10 @@ header nav {
     opacity: 0;
     background: linear-gradient(45deg, #FF5733, #6B16F7, #00C9FF, #11FF02, #ff02d1, #11FF02);
     background-size: 250%;
-    animation: gradientAnimation 20s ease-in-out alternate infinite;
+    animation: gradientAnimation 15s ease-in-out alternate infinite;
     transition: opacity 0.3s ease-in-out;
 }
-
+/* Déplacement du fond de page de gauche à droite */
 @keyframes gradientAnimation {
     0% {
         background-position: left;
