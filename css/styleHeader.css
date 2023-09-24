@@ -4,17 +4,25 @@
     box-sizing: border-box;
 }
 
+/* Permet d'éviter que le contenu se déplace à gauche 
+dû à la barre de défilement */
 html {
+    font-size: 1rem;
     width: 100vw;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
+/* Affichage du body en transition avec l'opacité */
 body {
     opacity: 0;
     height: 100vh;
     background-color: rgb(18, 18, 18);
     transition: opacity 0.3s ease-in-out;
+    overflow-x: hidden;
 }
 
+/* --- --- */
+/* ------------------- Header ------------------- */
 header {
     width: 450px;
     height: 60px;
@@ -28,6 +36,7 @@ header {
     align-items: center;
 }
 
+/* Lien de navigation */
 header nav {
     display: flex;
     justify-content: space-between;
@@ -37,8 +46,7 @@ header nav {
 }
 
 .lien {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 18px;
+    font-size: 1.1rem;
     color: rgb(255, 255, 255);
     cursor: pointer;
     text-decoration: none;
@@ -47,6 +55,7 @@ header nav {
     position: relative;
 }
 
+/* Barre de soulignement du lien */
 .lien::after {
     content: "";
     position: absolute;
@@ -65,17 +74,9 @@ header nav {
     transition: width 0.3s ease-in-out;
 }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: left;
-    }
 
-    100% {
-        background-position: right;
-    }
-}
-
-/* Apply the animation to an element */
+/* --- --- */
+/* ----------------- Le fond de page mouvant ----------------- */
 .gradientAnimation {
     position: absolute;
     top: -10px;
@@ -89,14 +90,25 @@ header nav {
     transition: opacity 0.3s ease-in-out;
 }
 
+@keyframes gradientAnimation {
+    0% {
+        background-position: left;
+    }
 
+    100% {
+        background-position: right;
+    }
+}
+
+/* --- --- */
+/* ---------------- Menu pour les petits écrans ---------------- */
+/* Menu */
 .menu {
     z-index: 9000;
     top: calc(-50% + 40px);
     height: 60px;
     width: 60px;
     position: absolute;
-    /* border-top: 3px solid white; */
     border-radius: 15px;
     display: none;
     justify-content: center;
@@ -114,6 +126,7 @@ header nav {
         top 0.5s ease-in-out 0.5s;
 }
 
+/* Barre du bas du menu */
 .menu::before {
     z-index: 500;
     position: absolute;
@@ -139,6 +152,7 @@ header nav {
         top 0.5s ease-in-out 0.5s;
 }
 
+/* Barre du haut du menu */
 .menu::after {
     position: absolute;
     content: "";
@@ -163,13 +177,14 @@ header nav {
         top 0.5s ease-in-out 0.5s;
 }
 
+/* --- */
+/* Les barres du menu qui se transforment en croix */
 .menu .barre {
     z-index: 500;
     height: inherit;
     width: 60px;
 }
 
-/* La croix */
 .menu .barre span {
     height: 5px;
     width: 40px;
@@ -181,10 +196,16 @@ header nav {
     transition: width .3s ease-in-out;
 }
 
+/* Barre du milieu */
 .menu .barre span:nth-child(1) {
     width: 40px;
 }
 
+.menu.active .barre span:nth-child(1) {
+    width: 0px;
+}
+
+/* Barre du haut */
 .menu .barre span:nth-child(2) {
     top: calc(50% - 13px);
     transform: translate(-50%, -50%);
@@ -194,6 +215,13 @@ header nav {
         width .5s ease-in-out 0.5s;
 }
 
+.menu.active .barre span:nth-child(2) {
+    top: 50%;
+    width: 50px;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+/* Barre du bas */
 .menu .barre span:nth-child(3) {
     top: calc(50% + 13px);
     transform: translate(-50%, -50%);
@@ -203,27 +231,18 @@ header nav {
         width .5s ease-in-out 0.5s;
 }
 
-.menu.active .barre span:nth-child(1) {
-    width: 0px;
-}
-
-.menu.active .barre span:nth-child(2) {
-    top: 50%;
-    width: 50px;
-    transform: translate(-50%, -50%) rotate(225deg);
-}
-
 .menu.active .barre span:nth-child(3) {
     top: 50%;
     width: 50px;
     transform: translate(-50%, -50%) rotate(-225deg);
 }
 
-/* Les liens */
+/* --- */
+/* Les liens du menu */
+/* On cache les liens */
 .menu .liens {
     position: absolute;
     height: 0;
-    width: 0;
     opacity: 0;
     display: flex;
     justify-content: center;
@@ -234,6 +253,7 @@ header nav {
         opacity .5s ease-in-out .5s;
 }
 
+/* On affiche les liens petit a petit avec la hauteur, la largeur et l'opacité */
 .menu.active .liens {
     width: 100%;
     height: 100vh;
@@ -246,6 +266,7 @@ header nav {
         opacity .5s ease-in-out .5s;
 }
 
+/* Placement des liens dans la balise 'nav' */
 .menu.active nav {
     position: absolute;
     z-index: 50;
@@ -255,23 +276,29 @@ header nav {
     align-items: center;
     list-style-type: none;
     width: 100%;
+    gap: 65px;
 }
 
-.menu.active nav li {
-    margin: 30px 0;
+.menu.active nav li a {
+    font-size: 1.5rem;
 }
 
-
-
+/* --- --- */
+/* ------------------- MediaQueries ------------------- */
+/* En dessous de 480px en largeur */
 @media (max-width: 480px) {
+
+    /* Le header prend toutes la largeur de la page */
     header {
         width: 100vw;
     }
 
+    /* On enlève la nav pour les grands écrans */
     header nav {
         display: none;
     }
 
+    /* On affiche la nav pour les petits écrans */
     .menu {
         display: flex;
     }

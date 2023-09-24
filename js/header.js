@@ -51,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // On ajoute une class quand on clique le menu
 const menu = document.querySelector(".menu");
 const barre = document.querySelector(".barre");
+
+// On empêche de cliquer tant que le menu ne s'est pas déroulé entièrement
+// Sinon les transitions ne se font plus
 let cliquable = true;
 
 barre.addEventListener("click", () => {

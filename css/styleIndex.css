@@ -2,11 +2,7 @@
     box-shadow: 0 0 0 3px red inset;
 } */
 
-html {
-    font-size: 1rem;
-
-}
-
+/* Placemement du header et de main dans la page */
 body {
     display: grid;
     grid-template-columns: 1fr;
@@ -18,9 +14,11 @@ body {
 
 header {
     grid-area: header;
-
 }
 
+/* --- --- */
+/* -------------------- Main -------------------- */
+/* Placemement éléments dans main */
 main {
     grid-area: main;
     display: flex;
@@ -28,7 +26,6 @@ main {
     align-items: center;
     width: 80%;
     margin: auto;
-    font-size: 1rem;
 }
 
 .gauche,
@@ -37,6 +34,7 @@ main {
     height: 100%;
 }
 
+/* Placement du bloc avec l'image */
 .gauche {
     width: 40%;
     display: flex;
@@ -48,7 +46,8 @@ main {
     position: relative;
     max-width: 400px;
 }
-
+/* --- */
+/* Placement du bloc avec le texte */
 .droite {
     width: 60%;
     color: white;
@@ -57,6 +56,7 @@ main {
     flex-direction: column;
 }
 
+/* Texte qui se modifie */
 .jeSuis {
     width: 100%;
     text-align: center;
@@ -68,39 +68,50 @@ main {
     transform: translate(-50%, -50%);
 }
 
+/* Texte d'introduction */
 .text {
     text-align: justify;
 }
 
-
-
+/* --- --- */
+/* ------------------- MediaQueries ------------------- */
 @media (max-width: 1300px) {
+
+    /* On place les 2 éléments de la page en colonne */
     main {
         flex-direction: column;
         padding-bottom: 60px;
         width: 100%;
     }
 
+    /* Redimmension de l'image */
     img {
         width: 325px;
     }
 
+    /* Faire descendre le texte d'introdution pour éviter la superpostion avec l'image */
     .gauche {
         margin-bottom: 125px;
     }
 }
 
 @media (max-width: 750px) {
+
+    /* Agrandissement de la zone d'intro */
     .droite {
         width: 80%;
+        font-size: 1.25rem;
+    }
+
+    /* Changement du format du texte */
+    .text {
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .text {
-        text-align: center;
-    }
 
+    /* Redimmension de l'image */
     img {
         width: 300px;
     }

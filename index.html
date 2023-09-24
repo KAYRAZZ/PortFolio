@@ -10,7 +10,9 @@
 
 <body>
     <header>
+        <!-- Menu pour les petits écrans -->
         <div class="menu">
+            <!-- Regroupe les liens du menu -->
             <div class="liens">
                 <nav>
                     <li><a class="lien" href="./index.html">Présentation</a></li>
@@ -18,24 +20,29 @@
                     <li><a class="lien" href="./html/competences.html">Compétences</a></li>
                 </nav>
             </div>
-
+            <!-- C'est les 3 barres du menu -->
             <div class="barre">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
+        <!-- Les liens pour la navigation pour les grands écrans-->
         <nav>
             <li><a class="lien" href="./index.html">Présentation</a></li>
             <li><a class="lien" href="./html/projets.html">Projets</a></li>
             <li><a class="lien" href="./html/competences.html">Compétences</a></li>
         </nav>
     </header>
+    <!-- Le fond de page -->
     <div class="gradientAnimation"></div>
     <main>
+        <!-- L'image -->
         <div class="gauche">
             <img src="images/icone3.png" alt="">
         </div>
+
+        <!-- Le texte -->
         <div class="droite">
             <span class="jeSuis">Je suis
                 <span class="multitext"></span>
@@ -59,8 +66,9 @@
             </span>
         </div>
     </main>
-    <!--  -->
+
     <script src="./js/header.js"></script>
+    <!-- Typed permet l'animation de 'Je suis ...' -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script type="text/javascript">
         var typed = new Typed(".multitext", {
@@ -73,7 +81,12 @@
                 hideCursor()
             },
         })
+
+        // A la fin de l'animation 'Typed', la fonction hideCursor() est appellé
+        // grâce à 'onComplete' configuré dans 'Typed'
         function hideCursor() {
+            // La librairie 'Typed' contient du CSS, donc on y accède 
+            // pour enlever son opacité à la fin de l'animation et en y ajoutant 2s
             var hideCursor = document.querySelector(".typed-cursor");
             setTimeout(function () {
                 hideCursor.style.opacity = 0;
