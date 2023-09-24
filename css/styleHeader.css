@@ -4,9 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100vw;
+}
+
 body {
     height: 100vh;
-    overflow-x: hidden;
     background-color: rgb(18, 18, 18);
     transition: opacity 0.3s ease-in-out;
 }
@@ -59,7 +62,6 @@ header nav {
 .lien.active::after {
     width: 100%;
     transition: width 0.3s ease-in-out;
-
 }
 
 @keyframes gradientAnimation {
@@ -88,25 +90,86 @@ header nav {
 
 
 .menu {
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 9000;
+    top: calc(-50% + 40px);
     height: 60px;
     width: 60px;
     position: absolute;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    /* border-top: 3px solid white; */
     border-radius: 15px;
     display: none;
     justify-content: center;
     align-items: center;
+    transition:
+        width 0.5s ease-in-out 0.5s,
+        top 0.5s ease-in-out;
 }
 
-.menu:hover::before {
-    transform: rotate(50deg);
+.menu.active {
+    width: 100%;
+    top: calc((-40px / 2) + 5px);
+    transition:
+        width 0.5s ease-in-out,
+        top 0.5s ease-in-out 0.5s;
 }
 
-.menu span {
+.menu::before {
+    z-index: 500;
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+    width: 60px;
+    border-bottom: 3px solid white;
+    border-radius: 15px;
+    transition:
+        width 0.5s ease-in-out 0.5s,
+        top 0.5s ease-in-out;
+}
+
+.menu.active::before {
+    border-bottom: 3px solid white;
+    top: calc(100vh - 31px);
+    width: 100%;
+    transition:
+        width 0.5s ease-in-out,
+        top 0.5s ease-in-out 0.5s;
+}
+
+.menu::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+    width: 60px;
+    border-top: 3px solid white;
+    border-radius: 15px;
+    transition:
+        width 0.5s ease-in-out 0.5s,
+        top 0.5s ease-in-out;
+}
+
+.menu.active::after {
+    border-top: 3px solid white;
+    top: 31px;
+    width: 100%;
+    transition:
+        width 0.5s ease-in-out,
+        top 0.5s ease-in-out 0.5s;
+}
+
+.menu .barre {
+    z-index: 500;
+    height: inherit;
+    width: 60px;
+}
+
+/* La croix */
+.menu .barre span {
     height: 5px;
     width: 40px;
     position: absolute;
@@ -114,42 +177,88 @@ header nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: width .4s ease-in-out;
+    transition: width .3s ease-in-out;
 }
 
-.menu span:nth-child(2) {
+.menu .barre span:nth-child(1) {
+    width: 40px;
+}
+
+.menu .barre span:nth-child(2) {
     top: calc(50% - 13px);
     transform: translate(-50%, -50%);
-    transition: transform .6s ease-in-out,
-    top .6s ease-in-out;
+    transition:
+        transform .5s ease-in-out,
+        top .5s ease-in-out,
+        width .5s ease-in-out 0.5s;
 }
 
-.menu span:nth-child(3) {
+.menu .barre span:nth-child(3) {
     top: calc(50% + 13px);
     transform: translate(-50%, -50%);
-    transition: transform .6s ease-in-out,
-    top .6s ease-in-out;
+    transition:
+        transform .5s ease-in-out,
+        top .5s ease-in-out,
+        width .5s ease-in-out 0.5s;
 }
 
-
-.menu.active span:nth-child(1) {
-    width: 0;
+.menu.active .barre span:nth-child(1) {
+    width: 0px;
 }
 
-.menu.active span:nth-child(2) {
+.menu.active .barre span:nth-child(2) {
     top: 50%;
+    width: 50px;
     transform: translate(-50%, -50%) rotate(225deg);
 }
 
-.menu.active span:nth-child(3) {
+.menu.active .barre span:nth-child(3) {
     top: 50%;
+    width: 50px;
     transform: translate(-50%, -50%) rotate(-225deg);
-
 }
 
+/* Les liens */
+.menu .liens {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        height 0.5s ease-in-out 0.5s,
+        width 0.3s ease-in-out,
+        opacity .5s ease-in-out .5s;
+}
 
+.menu.active .liens {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    top: -3px;
+    opacity: 1;
+    transition:
+        height 0.5s ease-in-out 0.5s,
+        width 0.3s ease-in-out,
+        opacity .5s ease-in-out .5s;
+}
 
+.menu.active nav {
+    position: absolute;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+}
 
+.menu.active nav li {
+    margin: 30px 0;
+}
 
 
 
@@ -161,9 +270,11 @@ header nav {
     header nav {
         display: none;
     }
+
     .menu {
         display: flex;
     }
+
     .gradientAnimation {
         background-size: 800%;
     }
