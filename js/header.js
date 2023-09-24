@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attend 0.5s avant d'afficher le body et l'animation gradient
     setTimeout(function () {
         body.style.opacity = 1;
-        gradientAnimation.style.opacity = 0.3;
+        gradientAnimation.style.opacity = 0.25;
     }, 500);
     // Permet de souligner la page actuel dans le header
     liens.forEach((lien) => {
